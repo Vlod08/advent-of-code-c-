@@ -14,9 +14,10 @@ int max_cals(string file_loc)
     while(!file.eof())
     {
         getline(file,line);
-        if(line == "\n")
+        if(line == "")
         {
             vect_cals.push_back(acc);
+            
         }
         else
         {
@@ -35,8 +36,10 @@ int max_cals(string file_loc)
 
 }
 
-void main (char** args, int argc)
+int main (int argc, char** args)
 {
-    cout<<max_cals()<<endl;
-    
+
+    cout<<args[1]<<endl;
+    cout<<"The max calories is : "<<max_cals(args[1])<<endl;
+    return 0;
 }
