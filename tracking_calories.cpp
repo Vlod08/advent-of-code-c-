@@ -17,6 +17,7 @@ int max_cals(string file_loc)
         if(line == "")
         {
             vect_cals.push_back(acc);
+            acc = 0;
             
         }
         else
