@@ -18,7 +18,7 @@ vector<int> topn_max_cals(string file_loc,int topn)
         {
             vect_cals.push_back(acc);
             acc = 0;
-            
+
         }
         else
         {
@@ -27,7 +27,7 @@ vector<int> topn_max_cals(string file_loc,int topn)
 
     }
 /***********finding the max amongst the cals**************/
-    vector<int> maxc; 
+    vector<int> maxc;
     maxc.push_back(vect_cals[0]);
     for(int cals: vect_cals)
     {
@@ -38,9 +38,10 @@ vector<int> topn_max_cals(string file_loc,int topn)
     	maxc.push_back(vect_cals[0]);
     	for(int cals: vect_cals)
     	{
-        	maxc[i] = ((maxc[i]<cals)&&(maxc[i]<maxc[i-1]) )? cals : maxc[i];
+        	maxc[i] = ((maxc[i]<cals) && (cals<maxc[i-1]))? cals : maxc[i];
+        	cout<<maxc[i]<<endl;
     	}
-    	
+
     }
 
     return maxc;
@@ -50,13 +51,17 @@ vector<int> topn_max_cals(string file_loc,int topn)
 int main (int argc, char** args)
 {
 
-    cout<<args[1]<<endl;
-    vector<int> result = topn_max_cals(args[1],stoi(args[2]));
+    int n;
+    cout<<"enter the top number of calories"<<endl;
+    cin>>n;
+    vector<int> result = topn_max_cals("input.txt",n);
+    int ans=0;
     for(int val: result)
     {
-    	cout<<val<<endl;
+    	ans = ans+val;
     }
-    
+    cout<<ans;
+
     return 0;
-    
+
 }
